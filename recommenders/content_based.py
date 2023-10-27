@@ -1,4 +1,4 @@
-from recommenders import data_movies
+from recommenders import data_movies, default_poster_url
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 import pandas as pd
@@ -117,9 +117,11 @@ def content_based_recommendation(movie):
             for i,s in similar_movies[:how_many]:
                 title = get_title_year_from_index(i)
                 movie_record = data_movies[data_movies.title == title].iloc[0]
+                movie_poster = str(movie_record.poster_link)
                 response.append({
                                     "movieId": int(movie_record.movieId),
                                     "title": str(title),
+                                    "image": movie_poster if movie_poster != "nan" else default_poster_url,
                                     "genres": str(movie_record.genres).split("|")
                                 })
         return {'message': title_string, "results": response}

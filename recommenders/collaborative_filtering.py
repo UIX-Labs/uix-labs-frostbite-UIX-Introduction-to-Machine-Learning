@@ -1,4 +1,4 @@
-from recommenders import data_movies, data_ratings
+from recommenders import data_movies, data_ratings, default_poster_url
 import pandas as pd
 import numpy as np
 from scipy.sparse import csr_matrix
@@ -69,9 +69,11 @@ def collaborative_recommendation(movie):
         else:
             title = movies_df.index[sorted_neighbor_indices[i]]
             movie_record = data_movies[data_movies.title == title].iloc[0]
+            movie_poster = str(movie_record.poster_link)
             response.append({
                                     "movieId": int(movie_record.movieId),
                                     "title": str(title),
+                                    "image": movie_poster if movie_poster != "nan" else default_poster_url,
                                     "genres": str(movie_record.genres).split("|")
                                 })
 
