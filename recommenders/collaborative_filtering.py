@@ -36,21 +36,25 @@ def collaborative_recommendation(movie):
 
     
 
-    ###########################################################################################
-    # Combining the data on same column
-    df= pd.merge(data_ratings, movies, on= 'movieId')
-    movies_df= df.pivot_table(index="title",columns='userId',values='rating').fillna(0)
-    #print(movies_df)
+    ######################################################################################################################################################################
+    '''
+    Complete the code below:
+    # Combining the data on same column: data_ratings and movies using pivot table => movies_df
     # Now converting into metrix
-    movies_df_metrix= csr_matrix(movies_df.values)
-    #print(movies_df_metrix)
     # Building the model
-    model_knn= NearestNeighbors(metric= 'cosine', algorithm='brute')
+    # Fitting the model 
+    '''
+
+    # Combining the data on same column: data_ratings and movies using pivot table => movies_df
+    movies_df= None
+    # Now converting into metrix
+    movies_df_metrix= None
+    # Building the model
+    model_knn= None
 
     # Fitting the model 
-    model_knn.fit(movies_df_metrix)
     
-    ###############################################################################################
+    ##########################################################################################################################################################
 
 
     index_value = movies_df.index.get_loc(closest_title)
