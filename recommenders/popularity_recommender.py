@@ -8,7 +8,7 @@ def recommend_popular_movies():
     movie_ratings = None
     '''
     complete the code to compute a variable movie_ratings
-    1. perform a merge between data_movies and data_ratings.
+    1. perform a merge between data_movies and data_ratings on 'movieId'.
     2. group by title and find the mean of ratings and fetch top 20 records.
     3. convert the records to dict.
     '''
