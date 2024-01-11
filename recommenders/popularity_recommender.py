@@ -17,11 +17,11 @@ def recommend_popular_movies():
 
     for movie in movie_ratings:
         movie_record = data_movies[data_movies.title == movie].iloc[0]
-        movie_poster = str(movie_record.poster_link)
+        movie_poster = None
         response.append({
             "movieId": int(movie_record.movieId),
             "title": str(movie),
-            "image": movie_poster if movie_poster != "nan" else default_poster_url,
+            "image": movie_poster if movie_poster != "nan" or movie_poster else default_poster_url,
             "genres": str(movie_record.genres).split("|"),
             "average_rating": movie_ratings[movie]
         })
