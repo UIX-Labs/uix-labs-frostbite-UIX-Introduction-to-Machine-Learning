@@ -22,11 +22,12 @@ data_ratings =None # empty df
 data_movies = None # empty df
 data_posters = None # empty df
 
-#####################################################################################################################################
+
 '''
 Uncomment the below line after you complete the code above.
 '''
 #data_movies = pd.merge(data_movies, data_posters, how="left", on="movieId")
+
 #####################################################################################################################################
 
 
